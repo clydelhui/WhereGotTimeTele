@@ -3,15 +3,14 @@ from constants import LESSON_ABBREV_TYPE
 
 
 
-def parse_url(url:str) -> tuple:
+def parse_url(url:str):
     """Parses a given URL to return a tuple where the first element is the 
       semester and the second element is a list that contains the module data
       returned by calling parse_module_data.
 
     :param url: The given URL.
     :type url: str
-    :return: A tuple containing the semester and the module data.
-    :rtype: tuple
+    :return: The semester and the module data.
     """
     prs_rslt = urlparse(url)
     if prs_rslt.netloc != 'nusmods.com':
@@ -20,7 +19,7 @@ def parse_url(url:str) -> tuple:
     semester = int(prs_rslt.path.split('-')[1][0])
     module_list_string = prs_rslt.query.split("&")
     module_data_list = [parse_module_data(mod) for mod in module_list_string]
-    return (semester, module_data_list)
+    return semester, module_data_list
 
 
   
@@ -42,7 +41,7 @@ def parse_module_data(module_data:str) -> dict:
                           "classes" : lessons}
     return module_data_parsed
 
-
+# def get_module
 
 
 

@@ -40,9 +40,9 @@ def get_module(acad_year:str, module_code:str, semester:int, lesson_list:list[di
 
 
 if __name__ == "__main__":
-    semester, module_data_list = parsers.parse_url('https://nusmods.com/timetable/sem-2/share?ES1000=SEC:G03&PC2032=LEC:1&ST2334=TUT:16,LEC:2')
+    semester, module_data_list = parsers.parse_url('https://nusmods.com/timetable/sem-1/share?GEC1015=LEC:3&LSM2233=LEC:1&LSM3228=LEC:1,LAB:1&LSM3232=LEC:1,LAB:1,TUT:1&PL1101E=LEC:1,TUT:E19')
     print(module_data_list)
     for i in module_data_list:
-        print(get_module('2022-2023', i['moduleCode'], semester, i['classes']))
+        print(get_module('2023-2024', i['moduleCode'], semester, i['classes']))
     print(get_module('2022-2023', 'ST2334', semester, module_data_list[2]['classes']))
     
